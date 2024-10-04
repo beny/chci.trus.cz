@@ -18,13 +18,13 @@ struct Home: StaticPage {
             for item in items {
                 Card(imageName: item.imageURL) {
                     Text(item.title ?? "")
-                        .font(.title1)
+                        .font(.title3)
                     Text(item.description ?? "")
 
                     Link("Detail", target: item.url ?? "")
                         .linkStyle(.button)
                 }
-                .frame(maxWidth: 390)
+                .frame(minWidth: 300, maxWidth: 390)
             }
         }
         .padding()
