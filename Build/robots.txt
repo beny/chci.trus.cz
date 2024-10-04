@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chci.trus.cz/sitemap.xml
