@@ -24,7 +24,7 @@ struct Home: StaticPage {
                     Link("Detail", target: item.url ?? "")
                         .linkStyle(.button)
                 }
-                .frame(width: 400)
+                .frame(maxWidth: 390)
             }
         }
         .padding()
