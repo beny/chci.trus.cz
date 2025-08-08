@@ -1,0 +1,62 @@
+/* Základní moderní layout pro Ignite projekt */
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f7f9;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.03);
+}
+
+.card, .Card {
+    background: #fcfcfe;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px #0001;
+    margin: 18px 0;
+    padding: 20px 16px;
+    transition: box-shadow .18s;
+    border: 1px solid #eee;
+}
+
+.card:hover, .Card:hover {
+    box-shadow: 0 4px 32px #0002;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+button, .button, a.linkStyle-button {
+    background: #0072f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-size: 1.05em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .18s;
+}
+
+button:hover, .button:hover, a.linkStyle-button:hover {
+    background: #004fa3;
+}
+
+@media (max-width: 600px) {
+    section {
+        max-width: 96vw;
+        padding: 10px;
+    }
+    .card, .Card {
+        padding: 10px 7px;
+    }
+}
