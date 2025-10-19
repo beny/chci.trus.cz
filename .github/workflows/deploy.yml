@@ -1,0 +1,69 @@
+name: Build & Deploy Docs on links.json change
+
+on:
+  push:
+    branches: [ main ]     # change if your default branch is different
+    paths:
+      - 'Resources/links.json'
+  workflow_dispatch: {}     # allow manual runs
+
+permissions:
+  contents: write           # needed so the workflow can push commits
+
+concurrency:
+  group: build-docs
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    if: github.actor != 'github-actions[bot]'   # avoid infinite loops on bot commits
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # allow pushing back to the same branch
+
+      # If your script needs particular runtimes or deps, install them here.
+      # Example placeholders (remove or adapt as needed):
+      # - name: Set up Node (if ignite is a Node CLI)
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      #
+      # - name: Install Ignite CLI (if required)
+      #   run: npm i -g ignite-cli
+
+      - name: Make script executable
+        run: chmod +x ./build_and_deploy.sh
+
+      - name: Configure git for the bot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run build & deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # used by git over https
+        run: |
+          # ensure pushes authenticate via the token
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+
+          # run your script
+          ./build_and_deploy.sh
+
+          # In case there were no changes, avoid failing the job
+          if git diff --quiet HEAD~1 HEAD 2>/dev/null; then
+            echo "No changes produced by build."
+          fi
+
+      - name: Skip CI on bot commit (optional)
+        if: success()
+        run: |
+          # If the last commit didn't include [skip ci], amend it to prevent re-triggers
+          if ! git log -1 --pretty=%B | grep -qi '\[skip ci\]'; then
+            git commit --amend -m "$(git log -1 --pretty=%B) [skip ci]" || true
+            git push --force-with-lease || true
+          fi
+
