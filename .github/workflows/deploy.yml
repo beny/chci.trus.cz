@@ -25,15 +25,15 @@ jobs:
         with:
           fetch-depth: 0   # allow pushing back to the same branch
 
-      # If your script needs particular runtimes or deps, install them here.
-      # Example placeholders (remove or adapt as needed):
-      # - name: Set up Node (if ignite is a Node CLI)
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      #
-      # - name: Install Ignite CLI (if required)
-      #   run: npm i -g ignite-cli
+      # --- Build & install Ignite (per your instructions) ---
+      - name: Build and install Ignite CLI
+        run: |
+          git clone https://github.com/twostraws/Ignite /tmp/Ignite
+          cd /tmp/Ignite
+          make
+          # Install to /usr/local/bin (use sudo if needed on GitHub runners)
+          sudo make install
+      # ------------------------------------------------------
 
       - name: Make script executable
         run: chmod +x ./build_and_deploy.sh
@@ -49,10 +49,8 @@ jobs:
         run: |
           # ensure pushes authenticate via the token
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-
-          # run your script
+          # run your script (now that Ignite is installed)
           ./build_and_deploy.sh
-
           # In case there were no changes, avoid failing the job
           if git diff --quiet HEAD~1 HEAD 2>/dev/null; then
             echo "No changes produced by build."
@@ -66,4 +64,3 @@ jobs:
             git commit --amend -m "$(git log -1 --pretty=%B) [skip ci]" || true
             git push --force-with-lease || true
           fi
-
