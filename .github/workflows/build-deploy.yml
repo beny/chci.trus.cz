@@ -1,0 +1,103 @@
+name: Build & Deploy (Pages)
+
+on:
+  push:
+    branches: [ main ]     # change if your default branch is different
+    paths:
+      - 'Resources/links.json'
+  workflow_dispatch: {}     # allow manual runs
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: build-and-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build docs (Ignite) and push changes
+    if: github.actor != 'github-actions[bot]'   # aby nevznikla smyčka
+    runs-on: macos-26
+
+    outputs:
+      deploy_ref: ${{ steps.setref.outputs.deploy_ref }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # allow pushing back to the same branch
+
+      - name: Build and install Ignite CLI
+        run: |
+          git clone https://github.com/twostraws/Ignite /tmp/Ignite
+          cd /tmp/Ignite
+          make
+          sudo make install
+
+      - name: Make script executable
+        run: chmod +x ./build_and_deploy.sh
+
+      - name: Configure git for the bot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run build & deploy script (push back to main)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # used by git over https
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          ./build_and_deploy.sh
+
+          # Pokud script nic nevygeneroval, ať job nefailne
+          if git diff --quiet; then
+            echo "No working-tree changes after build."
+          fi
+
+      # IMPORTANT: uložíme ref, ze kterého se má dělat Pages deploy
+      # (po tvém scriptu už může být HEAD jinde než původní checkout)
+      - name: Set deploy ref output
+        id: setref
+        run: |
+          echo "deploy_ref=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Skip CI on bot commit (optional)
+        if: success()
+        run: |
+          if ! git log -1 --pretty=%B | grep -qi '\[skip ci\]'; then
+            git commit --amend -m "$(git log -1 --pretty=%B) [skip ci]" || true
+            git push --force-with-lease || true
+          fi
+
+  pages:
+    name: Deploy to GitHub Pages (from docs/)
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Checkout přesně toho commitu, který build job vyprodukoval
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build.outputs.deploy_ref }}
+          fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
