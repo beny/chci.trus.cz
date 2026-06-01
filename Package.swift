@@ -8,11 +8,12 @@ let package = Package(
     platforms: [.macOS(.v13)],
     dependencies: [
         .package(url: "https://github.com/twostraws/Ignite.git", revision: "a4bade4363ad6525b671ad49e23089970780b47b"),
-        .package(url: "https://github.com/satoshi-takano/OpenGraph", branch: "main")
+        .package(url: "https://github.com/satoshi-takano/OpenGraph", branch: "main"),
+        .package(url: "https://github.com/jpsim/Yams.git", from: "5.0.0")
     ],
     targets: [
         .executableTarget(
             name: "IgniteStarter",
-            dependencies: ["Ignite", "OpenGraph"]),
+            dependencies: ["Ignite", "OpenGraph", "Yams"]),
     ]
 )

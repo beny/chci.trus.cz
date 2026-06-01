@@ -81,3 +81,6 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 .DS_Store
+
+# Ignite build output (deployuje se docs/)
+/Build/
