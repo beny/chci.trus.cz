@@ -1,0 +1,119 @@
+/* Základní moderní layout pro Ignite projekt */
+/* Pozn.: Ignite renderuje `Section { }` jako <div class="col-sm-10 mx-auto"><div class="row">,
+   v HTML není žádný <section> element - proto se cílí na .col-sm-10 a .row. */
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f7f9;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+/* Kontejner stránky - plná šířka, kolik karet se vejde, tolik sloupců */
+.col-sm-10.mx-auto {
+    width: 100%;             /* přebíjí Bootstrap 83% šířku */
+    max-width: none;         /* žádný strop - sloupců tolik, kolik se vejde */
+    margin: 40px auto;
+    padding: 16px 24px;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Mřížka karet - gap drží stejnou mezeru vodorovně i svisle při zalomení */
+.col-sm-10 .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;   /* karty si drží přirozenou výšku, žádné natahování */
+    justify-content: center;   /* karty vystředěné, vč. neúplného posledního řádku */
+    padding: 4px !important;   /* přebíjí inline padding od Ignite */
+}
+
+.col-sm-10 .row > .col {
+    flex: 0 1 320px;           /* základní šířka karty, zalamuje se samo */
+    min-width: 260px;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+    margin: 0;                 /* veškeré mezery řeší gap */
+}
+
+.card, .Card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    min-width: 0 !important;   /* přebíjí inline min-width: 300px */
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0;                /* obrázek edge-to-edge, text má vlastní padding */
+    overflow: hidden;
+    background: #fcfcfe;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px #0001;
+    border: 1px solid #eee;
+    transition: box-shadow .18s;
+}
+
+.card:hover, .Card:hover {
+    box-shadow: 0 4px 32px #0002;
+}
+
+/* Jednotný formát obrázků */
+.card-img-top {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #f0f0f2;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 8px;
+    padding: 16px;
+}
+
+.card-text {
+    flex: 1 1 auto;
+    margin: 0;
+}
+
+.card-title {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+}
+
+button, .button, a.linkStyle-button, .card-link {
+    align-self: flex-start;
+    margin-top: auto;
+    background: #0072f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 17px;
+    font-size: 1.05em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .18s;
+}
+
+button:hover, .button:hover, a.linkStyle-button:hover, .card-link:hover {
+    background: #004fa3;
+}
+
+@media (max-width: 600px) {
+    .col-sm-10.mx-auto {
+        max-width: 96vw;
+        padding: 12px;
+    }
+    /* na úzké obrazovce karta přes celou šířku */
+    .col-sm-10 .row > .col {
+        flex-basis: 100%;
+    }
+}
