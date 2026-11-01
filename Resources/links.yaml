@@ -7,7 +7,25 @@
 #
 # Položky odděluj prázdným řádkem. Klíče odsazuj 2 mezerami.
 
-- url: https://montblanc.utmb.world/races/utmb
+- url: https://www.bauhaus.cz/ifixit-drzak-vodicu-pro-pajeni-32038086
+  title: iFixit držák vodičů pro pájení
+  description: Pomocná ruka na přidržení kabelů a vodičů při pájení
+  image: https://media.bauhaus.cz/media/catalog/product/4/3/435544_p_img.png
+
+- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Mini-Tools-4-pieces/p/2.1201.4
+  title: Victorinox Mini Tools, 4 kusy
+  description: Sada mini nástrojů do vývrtky nože - plochý šroubovák, křížový šroubovák, Torx T4 a jehla na SIM kartu
+  image: https://imageengine.victorinox.com/transform/52799015-63b2-459e-83df-dbfafcfce4c0/SAK_Mini-Tools_G1?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
+
+- url: https://www.bauhaus.cz/ifixit-antistaticka-podlozka-fixmat-32038095
+  title: iFixit FixMat
+  description: Antistatická pracovní podložka na opravy elektroniky s přihrádkami na šroubky
+  image: https://media.bauhaus.cz/media/catalog/product/4/3/435494_p_img.png
+
+- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Compact/p/1.3405
+  title: Victorinox Compact
+  description: Švýcarský kapesní nůž s 15 funkcemi včetně nůžek, vývrtky a propisky
+  image: https://imageengine.victorinox.com/transform/313a555e-8f29-4487-bb01-dceeca554eeb/SAK_1-3405_S2?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
 
 - url: https://www.petzl.com/int/en/sport/products/climbing-mountaineering-lanyards/connect-adjust/CONNECT-ADJUST_SPO_a2m68000000XZbNAAW.html
   title: Petzl Connect Adjust
@@ -15,6 +33,8 @@
   image: https://www.petzl.com/on/demandware.static/-/Sites-petzl-master-catalog/default/dw5be30647/media/product/L034BA00-CONNECT-ADJUST-focus-3_LowRes_0686800000NNqrsAAD.jpeg
 
 - url: https://www.apple.com/cz/apple-tv-4k/
+
+- url: https://montblanc.utmb.world/races/utmb
 
 - url: https://store.steampowered.com/hardware/steamframe
   description: Bezdrátový VR headset od Valve pro VR i klasické hraní - streamování z PC i samostatný provoz
@@ -27,23 +47,3 @@
   title: Volkswagen ID. Buzz Pro
   description: Elektrický mikrobus s baterií 79 kWh - nakonfigurovaná verze v akční nabídce
   image: https://cdn.nwi-ms.com/media/cz/L/mc/EBBR7RG1/model/front.jpg?F=9335&P=IF&M=$0B@$9C@$BP@$C4@$D2@1M6@76H@EB9@ZC6@ZJ6@ZR1@ZU3&size=XL&background=full&format=3:4
-
-- url: https://www.bauhaus.cz/ifixit-antistaticka-podlozka-fixmat-32038095
-  title: iFixit FixMat
-  description: Antistatická pracovní podložka na opravy elektroniky s přihrádkami na šroubky
-  image: https://media.bauhaus.cz/media/catalog/product/4/3/435494_p_img.png
-
-- url: https://www.bauhaus.cz/ifixit-drzak-vodicu-pro-pajeni-32038086
-  title: iFixit držák vodičů pro pájení
-  description: Pomocná ruka na přidržení kabelů a vodičů při pájení
-  image: https://media.bauhaus.cz/media/catalog/product/4/3/435544_p_img.png
-
-- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Compact/p/1.3405
-  title: Victorinox Compact
-  description: Švýcarský kapesní nůž s 15 funkcemi včetně nůžek, vývrtky a propisky
-  image: https://imageengine.victorinox.com/transform/313a555e-8f29-4487-bb01-dceeca554eeb/SAK_1-3405_S2?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
-
-- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Mini-Tools-4-pieces/p/2.1201.4
-  title: Victorinox Mini Tools, 4 kusy
-  description: Sada mini nástrojů do vývrtky nože - plochý šroubovák, křížový šroubovák, Torx T4 a jehla na SIM kartu
-  image: https://imageengine.victorinox.com/transform/52799015-63b2-459e-83df-dbfafcfce4c0/SAK_Mini-Tools_G1?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
