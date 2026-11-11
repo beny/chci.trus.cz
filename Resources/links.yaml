@@ -12,15 +12,15 @@
   description: Pomocná ruka na přidržení kabelů a vodičů při pájení
   image: https://media.bauhaus.cz/media/catalog/product/4/3/435544_p_img.png
 
-- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Mini-Tools-4-pieces/p/2.1201.4
-  title: Victorinox Mini Tools, 4 kusy
-  description: Sada mini nástrojů do vývrtky nože - plochý šroubovák, křížový šroubovák, Torx T4 a jehla na SIM kartu
-  image: https://imageengine.victorinox.com/transform/52799015-63b2-459e-83df-dbfafcfce4c0/SAK_Mini-Tools_G1?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
-
 - url: https://www.bauhaus.cz/ifixit-antistaticka-podlozka-fixmat-32038095
   title: iFixit FixMat
   description: Antistatická pracovní podložka na opravy elektroniky s přihrádkami na šroubky
   image: https://media.bauhaus.cz/media/catalog/product/4/3/435494_p_img.png
+
+- url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Mini-Tools-4-pieces/p/2.1201.4
+  title: Victorinox Mini Tools, 4 kusy
+  description: Sada mini nástrojů do vývrtky nože - plochý šroubovák, křížový šroubovák, Torx T4 a jehla na SIM kartu
+  image: https://imageengine.victorinox.com/transform/52799015-63b2-459e-83df-dbfafcfce4c0/SAK_Mini-Tools_G1?io=transform%3Abackground%2Ccolor%3AF0F0F0&io=transform%3Afit%2Cwidth%3A900%2Cheight%3A650&quality=100
 
 - url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Compact/p/1.3405
   title: Victorinox Compact
