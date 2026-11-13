@@ -6,6 +6,7 @@ struct MyTheme: Theme {
         HTML {
             Head(for: page, in: context) {
                 MetaLink(href: "/main.css", rel: "stylesheet")
+                MetaLink(href: "/apple-touch-icon.png", rel: "apple-touch-icon")
                 Script(file: "/js/theme.js")
             }
 
