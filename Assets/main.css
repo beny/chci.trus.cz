@@ -107,6 +107,65 @@ button:hover, .button:hover, a.linkStyle-button:hover, .card-link:hover {
     background: #004fa3;
 }
 
+/* Segment control na úvodní stránce - přepíná seznamy přes Bootstrap pills */
+.nav.segmented {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;    /* všechny segmenty stejně široké - indikátor pak jen posouvá */
+    width: fit-content;
+    margin: 0 auto 28px;
+    padding: 4px;
+    background: #e9e9ee;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 3px #0000000f;
+}
+
+/* Bílý indikátor, který přejede pod aktivní segment.
+   Počítá se 2 segmenty - pro dalšího Person uprav dělitel a přidej nth-child pravidlo. */
+.nav.segmented::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc((100% - 8px) / 2);
+    background: #fff;
+    border-radius: 999px;
+    box-shadow: 0 1px 2px #0000001a, 0 4px 14px #00000014;
+    transition: transform .3s cubic-bezier(.3, .7, .4, 1);
+}
+
+.nav.segmented:has(.nav-link:nth-child(2).active)::before {
+    transform: translateX(100%);
+}
+
+.nav.segmented .nav-link {
+    position: relative;        /* nad indikátorem */
+    min-width: 120px;
+    padding: 9px 28px;
+    border-radius: 999px;
+    color: #6b6b76;
+    font-weight: 600;
+    letter-spacing: .01em;
+    text-align: center;
+    transition: color .2s;
+}
+
+.nav.segmented .nav-link:hover {
+    color: #2a2a30;
+}
+
+.nav.segmented .nav-link.active {
+    color: #111;
+}
+
+.nav.segmented .nav-link:focus-visible {
+    outline: 2px solid #0072f5;
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
 @media (max-width: 600px) {
     .col-sm-10.mx-auto {
         max-width: 96vw;

@@ -1,0 +1,67 @@
+# Víťův seznam pro chci.trus.cz (a chci.trus.cz/vita)
+#
+# Každá položka začíná "- url:" a musí mít URL.
+# Volitelně doplň title / description / image - když je vyplníš,
+# mají přednost před daty staženými ze stránky (OpenGraph).
+# Hodí se hlavně pro odkazy, které OpenGraph nemají (např. konfigurátory).
+#
+# Položky odděluj prázdným řádkem. Klíče odsazuj 2 mezerami.
+
+# Příklad:
+# - url: https://www.lego.com/cs-cz/product/...
+#   title: Název
+
+- url: https://www.alza.cz/herni-klavesnice/18853599.htm
+  title: Herní klávesnice
+  description: Nějaká pěkná herní klávesnice s podsvícením
+  image: /images/gaming-keyboard.svg
+
+- url: https://www.razer.com/gaming-mice/minecraft-razer-cobra/RZ01-04650200-R3M1
+  title: Razer Cobra - Minecraft Edition
+  description: Herní myš v Minecraft designu
+  image: https://assets3.razerzone.com/IpDA77G2NpJLxJ3TRhVPQ3E6hnY=/1500x1000/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh25%2Fh99%2F9877650112542%2Fcobra-minecraft-500x500.png
+
+- url: https://geometrydashstore.com/product/large-mouse-pad-game-geometry-dash-desk-mouse-pad/
+  title: Podložka pod myš a klávesnici Geometry Dash
+  description: Velká herní podložka pod myš a klávesnici, 60 × 30 cm
+  image: https://geometrydashstore.com/wp-content/uploads/2025/12/See8b78375388444ba956f9f6a4f13845o.webp
+
+- url: https://www.legohouse.com/
+  title: Výlet do LEGO House
+  description: Zážitek místo věci - společný výlet do LEGO House v dánském Billundu
+  image: https://images.contentstack.io/v3/assets/blt0f30cde51fb2f22c/bltc3b9053980273b3a/698b16c11ab63ed13b27cb5e/lego-house-fan-tour.jpg
+
+- url: https://store.steampowered.com/hardware/steammachine
+  title: Steam Machine
+  description: Herní konzole od Valve - hry ze Steamu na velké obrazovce
+  image: https://clan.fastly.steamstatic.com/images/45479024/d2ce7e96bb0ab51817ba37cf61e3ca919d6f7209.jpg
+
+- url: https://www.lego.com/cs-cz/product/the-crafting-table-21265
+  title: LEGO Minecraft Pracovní stůl (21265)
+  description: Ponk z Minecraftu s 12 mini biomy uvnitř a 8 mikrofigurkami
+  image: https://images.brickset.com/sets/images/21265-1.jpg
+
+- url: https://www.lego.com/cs-cz/product/mini-biomes-21589
+  title: LEGO Minecraft Mini biomy (21589)
+  description: Pět vyjímatelných mini biomů s oboustranným pozadím den/noc a 5 mikrofigurkami
+  image: https://images.brickset.com/sets/images/21589-1.jpg
+
+- url: https://geometrydashstore.com/product/2025-new-geometry-dash-game-plush-toy/?attribute_pa_color=a&attribute_pa_height=12cm
+  title: Plyšák Geometry Dash - žlutý
+  description: Plyšová kostka z Geometry Dash, 12 cm, žlutá varianta
+  image: /images/geometry-dash-plush.jpg
+
+- url: https://store.steampowered.com/app/322170/Geometry_Dash/
+  title: Geometry Dash
+  description: Rytmická skákačka plná překážek - hra na Steam Machine
+  image: /images/geometry-dash.svg
+
+- url: https://store.steampowered.com/app/1912410/Minecraft_Dungeons_II/
+  title: Minecraft Dungeons II
+  description: Akční dungeon crawler ve světě Minecraftu, i v kooperaci až pro 4 hráče - hra na Steam Machine
+  image: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1912410/222677a2c4a3b8127d0dfbdccf59d70a4076f72e/capsule_616x353.jpg
+
+- url: https://store.steampowered.com/app/1211020/Wobbly_Life/
+  title: Wobbly Life
+  description: Ztřeštěný otevřený svět s fyzikou, brigádami a minihrami, i v kooperaci - hra na Steam Machine
+  image: https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1211020/a942ae5080d4b631679a9c346a5f7c91e28825f1/capsule_616x353.jpg

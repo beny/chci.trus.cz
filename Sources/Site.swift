@@ -25,6 +25,12 @@ struct ExampleSite: Site {
 
     var homePage = Home()
     var theme = MyTheme()
+
+    var pages: [any StaticPage] {
+        for person in Person.allCases {
+            WishlistPage(person: person)
+        }
+    }
 }
 
 
