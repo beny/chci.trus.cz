@@ -2,10 +2,45 @@
 /* Pozn.: Ignite renderuje `Section { }` jako <div class="col-sm-10 mx-auto"><div class="row">,
    v HTML není žádný <section> element - proto se cílí na .col-sm-10 a .row. */
 
+/* Barvy pro světlý a tmavý vzhled - data-bs-theme nastavuje js/theme.js */
+:root, [data-bs-theme=light] {
+    --page-bg: #f7f7f9;
+    --text: #222;
+    --card-bg: #fcfcfe;
+    --card-border: #eee;
+    --card-shadow: #0001;
+    --card-shadow-hover: #0002;
+    --img-bg: #f0f0f2;
+    --accent: #0072f5;
+    --accent-hover: #004fa3;
+    --seg-bg: #e9e9ee;
+    --seg-thumb: #fff;
+    --seg-text: #6b6b76;
+    --seg-text-hover: #2a2a30;
+    --seg-text-active: #111;
+}
+
+[data-bs-theme=dark] {
+    --page-bg: #0f1014;
+    --text: #e6e6ea;
+    --card-bg: #1a1b21;
+    --card-border: #2a2b33;
+    --card-shadow: #0006;
+    --card-shadow-hover: #000a;
+    --img-bg: #24252c;
+    --accent: #2f86ff;
+    --accent-hover: #5a9fff;
+    --seg-bg: #23242b;
+    --seg-thumb: #3a3b45;
+    --seg-text: #9a9aa6;
+    --seg-text-hover: #d8d8e0;
+    --seg-text-active: #fff;
+}
+
 body {
     font-family: system-ui, sans-serif;
-    background: #f7f7f9;
-    color: #222;
+    background: var(--page-bg);
+    color: var(--text);
     margin: 0;
     padding: 0;
 }
@@ -49,15 +84,16 @@ body {
     margin: 0 !important;
     padding: 0;                /* obrázek edge-to-edge, text má vlastní padding */
     overflow: hidden;
-    background: #fcfcfe;
+    background: var(--card-bg);
+    color: var(--text);
     border-radius: 14px;
-    box-shadow: 0 2px 14px #0001;
-    border: 1px solid #eee;
+    box-shadow: 0 2px 14px var(--card-shadow);
+    border: 1px solid var(--card-border);
     transition: box-shadow .18s;
 }
 
 .card:hover, .Card:hover {
-    box-shadow: 0 4px 32px #0002;
+    box-shadow: 0 4px 32px var(--card-shadow-hover);
 }
 
 /* Jednotný formát obrázků */
@@ -65,7 +101,7 @@ body {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    background: #f0f0f2;
+    background: var(--img-bg);
 }
 
 .card-body {
@@ -92,7 +128,7 @@ h1, h2, h3, h4 {
 button, .button, a.linkStyle-button, .card-link {
     align-self: flex-start;
     margin-top: auto;
-    background: #0072f5;
+    background: var(--accent);
     color: white;
     border: none;
     border-radius: 8px;
@@ -104,11 +140,12 @@ button, .button, a.linkStyle-button, .card-link {
 }
 
 button:hover, .button:hover, a.linkStyle-button:hover, .card-link:hover {
-    background: #004fa3;
+    background: var(--accent-hover);
 }
 
-/* Segment control na úvodní stránce - přepíná seznamy přes Bootstrap pills */
+/* Segment control - přepínač osob na úvodní stránce a přepínač vzhledu v patičce */
 .nav.segmented {
+    --segments: 2;
     position: relative;
     display: grid;
     grid-auto-flow: column;
@@ -116,36 +153,44 @@ button:hover, .button:hover, a.linkStyle-button:hover, .card-link:hover {
     width: fit-content;
     margin: 0 auto 28px;
     padding: 4px;
-    background: #e9e9ee;
+    background: var(--seg-bg);
     border-radius: 999px;
     box-shadow: inset 0 1px 3px #0000000f;
 }
 
-/* Bílý indikátor, který přejede pod aktivní segment.
-   Počítá se 2 segmenty - pro dalšího Person uprav dělitel a přidej nth-child pravidlo. */
+/* Indikátor, který přejede pod aktivní segment.
+   Pro víc segmentů nastav --segments a přidej nth-child pravidlo. */
 .nav.segmented::before {
     content: "";
     position: absolute;
     top: 4px;
     bottom: 4px;
     left: 4px;
-    width: calc((100% - 8px) / 2);
-    background: #fff;
+    width: calc((100% - 8px) / var(--segments));
+    background: var(--seg-thumb);
     border-radius: 999px;
     box-shadow: 0 1px 2px #0000001a, 0 4px 14px #00000014;
     transition: transform .3s cubic-bezier(.3, .7, .4, 1);
 }
 
-.nav.segmented:has(.nav-link:nth-child(2).active)::before {
+.nav.segmented:has(> .nav-link:nth-child(2).active)::before {
     transform: translateX(100%);
+}
+
+.nav.segmented:has(> .nav-link:nth-child(3).active)::before {
+    transform: translateX(200%);
 }
 
 .nav.segmented .nav-link {
     position: relative;        /* nad indikátorem */
     min-width: 120px;
     padding: 9px 28px;
+    margin: 0;
+    border: 0;
     border-radius: 999px;
-    color: #6b6b76;
+    background: transparent;
+    color: var(--seg-text);
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: .01em;
     text-align: center;
@@ -153,15 +198,48 @@ button:hover, .button:hover, a.linkStyle-button:hover, .card-link:hover {
 }
 
 .nav.segmented .nav-link:hover {
-    color: #2a2a30;
+    background: transparent;
+    color: var(--seg-text-hover);
 }
 
 .nav.segmented .nav-link.active {
-    color: #111;
+    background: transparent;
+    color: var(--seg-text-active);
+}
+
+/* Malý přepínač vzhledu v patičce: auto / světlý / tmavý */
+.site-footer {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 40px;
+}
+
+.nav.segmented.theme-switch {
+    --segments: 3;
+    margin: 0;
+    padding: 3px;
+}
+
+html:not(.theme-ready) .nav.segmented.theme-switch::before {
+    transition: none;
+}
+
+.nav.segmented.theme-switch::before {
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc((100% - 6px) / var(--segments));
+}
+
+.nav.segmented.theme-switch .nav-link {
+    min-width: 0;
+    padding: 4px 11px;
+    font-size: .85rem;
+    line-height: 1;
 }
 
 .nav.segmented .nav-link:focus-visible {
-    outline: 2px solid #0072f5;
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
     box-shadow: none;
 }

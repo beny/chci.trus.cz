@@ -6,12 +6,14 @@ struct MyTheme: Theme {
         HTML {
             Head(for: page, in: context) {
                 MetaLink(href: "/main.css", rel: "stylesheet")
+                Script(file: "/js/theme.js")
             }
 
             Body {
                 page.body
 
                 IgniteFooter()
+                Include("theme-switch.html")
             }
         }
     }
