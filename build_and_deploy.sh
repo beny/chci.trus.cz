@@ -18,7 +18,11 @@ cp CNAME docs/CNAME
 
 echo "📬 Committing and pushing changes..."
 git add -A
-git commit -m "Update links"
+if git diff --cached --quiet; then
+    echo "✅ Nothing changed, nothing to commit."
+    exit 0
+fi
+git commit -m "Update links [skip ci]"
 git push
 
 echo "✅ Deployment complete!"
