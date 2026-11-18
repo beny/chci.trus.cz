@@ -7,14 +7,24 @@
 #
 # Položky odděluj prázdným řádkem. Klíče odsazuj 2 mezerami.
 
+- url: https://www.alza.cz/hobby/ifixit-jimmy-d6252927.htm
+  title: iFixit Jimmy
+  description: Pružná ocelová čepel s ergonomickou rukojetí na otevírání a páčení elektroniky
+  image: https://cdn.shopify.com/s/files/1/0045/4092/4007/files/aIovhEfHIZ1hBUuY.jpg?v=1764008100&width=900
+
+- url: https://www.alza.cz/hobby/ifixit-cistic-pajecich-hrotu-d13295630.htm
+  title: iFixit čistič pájecích hrotů
+  description: Mosazná drátěnka v silikonovém pouzdře - čistí hrot bez vody a neochlazuje ho
+  image: https://cdn.shopify.com/s/files/1/0045/4092/4007/files/XrIrwWfOv6QRBXFB.jpg?v=1728668806&width=900
+
 - url: https://www.bauhaus.cz/ifixit-drzak-vodicu-pro-pajeni-32038086
   title: iFixit držák vodičů pro pájení
   description: Pomocná ruka na přidržení kabelů a vodičů při pájení
   image: https://media.bauhaus.cz/media/catalog/product/4/3/435544_p_img.png
 
-- url: https://www.bauhaus.cz/ifixit-antistaticka-podlozka-fixmat-32038095
+- url: https://www.alza.cz/hobby/ifixit-fixmat-magneticka-projektova-podlozka-25-30-1-1-cm-d10786682.htm
   title: iFixit FixMat
-  description: Antistatická pracovní podložka na opravy elektroniky s přihrádkami na šroubky
+  description: Magnetická popisovatelná podložka na opravy elektroniky, která udrží šroubky na místě
   image: https://media.bauhaus.cz/media/catalog/product/4/3/435494_p_img.png
 
 - url: https://www.victorinox.com/en/Products/Swiss-Army-Knife™-and-Tools/Essentials/Mini-Tools-4-pieces/p/2.1201.4
