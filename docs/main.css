@@ -96,6 +96,33 @@ body {
     box-shadow: 0 4px 32px var(--card-shadow-hover);
 }
 
+/* Zamluvená položka (booked: true v YAML) */
+.booked {
+    position: relative;
+}
+
+.booked .card-img-top {
+    filter: grayscale(1);
+    opacity: .45;
+}
+
+.booked .card-body {
+    opacity: .55;
+}
+
+.booked::after {
+    content: "Zamluveno";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--text);
+    color: var(--card-bg);
+    font-size: .85em;
+    font-weight: 600;
+}
+
 /* Jednotný formát obrázků */
 .card-img-top {
     width: 100%;
