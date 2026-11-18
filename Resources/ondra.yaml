@@ -4,6 +4,7 @@
 # Volitelně doplň title / description / image - když je vyplníš,
 # mají přednost před daty staženými ze stránky (OpenGraph).
 # Hodí se hlavně pro odkazy, které OpenGraph nemají (např. konfigurátory).
+# "booked: true" označí položku jako zamluvenou.
 #
 # Položky odděluj prázdným řádkem. Klíče odsazuj 2 mezerami.
 

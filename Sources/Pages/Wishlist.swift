@@ -28,6 +28,7 @@ struct Wishlist {
         let title: String?
         let description: String?
         let image: String?
+        let booked: Bool?
     }
 
     /// Výsledná data pro vykreslení karty (po sloučení override + OpenGraph).
@@ -36,6 +37,7 @@ struct Wishlist {
         let description: String?
         let imageURL: String?
         let url: String
+        let isBooked: Bool
     }
 
     /// Seznam se vykresluje na `/` i na `/<person>` - OpenGraph stačí stáhnout jednou.
@@ -65,6 +67,7 @@ struct Wishlist {
                         .linkStyle(.button)
                 }
                 .frame(minWidth: 300, maxWidth: 390)
+                .class(item.isBooked ? "booked" : "")
             }
         }
         .padding()
@@ -108,7 +111,7 @@ struct Wishlist {
         if let title = entry.title,
            let description = entry.description,
            let image = entry.image {
-            return Item(title: title, description: description, imageURL: image, url: entry.url)
+            return Item(title: title, description: description, imageURL: image, url: entry.url, isBooked: entry.booked ?? false)
         }
 
         var openGraph: OpenGraph?
@@ -120,7 +123,8 @@ struct Wishlist {
             title: entry.title ?? openGraph?[.title],
             description: entry.description ?? openGraph?[.description],
             imageURL: entry.image ?? openGraph?[.image],
-            url: entry.url
+            url: entry.url,
+            isBooked: entry.booked ?? false
         )
     }
 }
