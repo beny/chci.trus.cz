@@ -51,11 +51,6 @@
   description: Plyšová kostka z Geometry Dash, 12 cm, žlutá varianta
   image: /images/geometry-dash-plush.jpg
 
-- url: https://store.steampowered.com/app/322170/Geometry_Dash/
-  title: Geometry Dash
-  description: Rytmická skákačka plná překážek - hra na Steam Machine
-  image: /images/geometry-dash.svg
-
 - url: https://store.steampowered.com/app/1912410/Minecraft_Dungeons_II/
   title: Minecraft Dungeons II
   description: Akční dungeon crawler ve světě Minecraftu, i v kooperaci až pro 4 hráče - hra na Steam Machine
